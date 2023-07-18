@@ -1,0 +1,21 @@
+{
+  "name": "mern-starter",
+  "version": "1.0.0",
+  "description": "README.md",
+  "author": "Martin Persson",
+  "contact": "moarte6@gmail.com",
+  "scripts": {
+    "start:server": "yarn server/ dev",
+    "start:client": "yarn client/ start",
+    "start": "concurrently \"yarn start:server\" \"yarn start:client\"",
+    "docker:dev": "docker-compose -f docker-compose.dev.yml up",
+    "docker:clean": "docker system prune --all --force",
+    "docker:prod": "docker-compose -f docker-compose.production.yml up",
+    "build": "yarn --cwd client/ build && yarn --cwd server/ build",
+    "prod": "yarn --cwd build/ prod"
+  },
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "ts-node-dev": "^2.0.0"
+  }
+}
