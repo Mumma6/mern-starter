@@ -20,5 +20,5 @@ export const initializeLogger = () =>
 
         resolve()
       }),
-    (error) => new Error(String(error))
+    () => new Error("Logger initialization error")
   )

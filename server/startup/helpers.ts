@@ -1,5 +1,4 @@
 import { RequestHandler } from "express"
-import { pipe } from "fp-ts/function"
 import * as TE from "fp-ts/TaskEither"
 import { Express } from "express"
 
