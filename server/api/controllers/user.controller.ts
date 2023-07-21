@@ -1,7 +1,9 @@
-import { Request, Response, Express } from "express"
+import { Request, Response, Express, NextFunction } from "express"
 import { pipe } from "fp-ts/lib/function"
 import * as TE from "fp-ts/TaskEither"
-import { createUser } from "../../application/services/user.service"
+import * as E from "fp-ts/Either"
+import { createUser, loginUser } from "../../application/services/user.service"
+import { UserDocument } from "../../infrastructure/schemas/user.schema"
 
 export const registerUser = async (req: Request, res: Response) => {
   await pipe(
@@ -13,3 +15,5 @@ export const registerUser = async (req: Request, res: Response) => {
     )
   )()
 }
+
+export const postUser = async (req: Request, res: Response, next: NextFunction) => loginUser(req, res, next)
